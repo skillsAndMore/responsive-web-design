@@ -1,0 +1,62 @@
+//1. Struttura base HTML per griglia
+<section class="section hero">
+    <h1>In questa sezione potremo inserire una grande immagine.</h1>
+</section>
+
+<section class="section content">
+    <article class="col col_9">
+        <h1>Questo articolo &egrave; di nove colonne</h1>
+    </article>
+    <aside class="col col_3">
+        <p>La sidebar invece di 3</p>
+    </aside>
+</section>
+
+//2. Definizione della classe .section
+.section{
+    width: 95%;
+    margin: 0 auto;
+}
+
+@media (min-width: 48rem) {
+    .section {
+        max-width: 62.5rem;
+    	clear: both;
+    	padding: 0px;
+    	margin: 0px auto;
+        zoom:1; /* For IE 6/7 */
+    }
+
+    .section::before, .section::after{
+        content:"";
+        display:table;
+    }
+
+    .section::after{ clear:both; }
+}
+
+//3. Definizione della classe .col
+@media (min-width: 48rem) {
+    .col {
+        display: block;
+        float:left;
+        margin-left: 1.4%;
+    }
+    .col:first-child { margin-left: 0; }
+}
+
+//4. Definizione delle colonne
+@media (min-width: 48rem) {
+    .col_12 { width: 100%; }
+    .col_11 { width: 91.55%; }
+    .col_10 { width: 83.1%; }
+    .col_9 { width: 74.65%; }
+    .col_8 { width: 66.2%; }
+    .col_7 { width: 57.75%; }
+    .col_6 { width: 49.3%; }
+    .col_5 { width: 40.85%; }
+    .col_4 { width: 32.4%; }
+    .col_3 { width: 23.95%; }
+    .col_2 { width: 15.5%; }
+    .col_1 { width: 7.05%; }
+}
