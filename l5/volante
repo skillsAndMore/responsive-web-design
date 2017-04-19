@@ -1,0 +1,157 @@
+//1. La pagina HTML che utilizzeremo durante la lezione
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Test Media stampa</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="nav-wrap">
+            <a id="logo"><h1>Il mio titolo</h1></a>
+            <a id="nav-menu" class="nav-menu">&#9776;</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                    <li><a href="#">Link 4</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</body>
+</html>
+
+//2. Il codice CSS per applicare l'effetto menu responsive
+.nav-menu{
+    display: block;
+    color: #f9f9f9;
+    cursor: pointer;
+    float: right;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.nav-wrap ul{
+    display: none;
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+}
+
+@media (min-width: 48rem) {
+
+    .nav-menu{ display: none; }
+
+    .nav-wrap ul{ display: block; }
+
+    .nav-wrap ul li{
+        float: left;
+        padding: 10px 20px;
+        border-bottom: none;
+    }
+
+    .nav-wrap nav{
+        float: right;
+        clear: none;
+    }
+
+}
+
+//3. Rendere accessibile il menu a basse risoluzioni
+.nav-wrap:hover ul{ display: block; }
+
+//4. Modifiche CSS da applicare
+.nav-wrap ul.mostra{ display: block; }
+
+//5. Codice JavaScript che aggiunge e rimuove la classe
+jQuery(document).ready(function($){
+
+    $('.nav-menu').on( "click tab", function(e){
+
+        if ( $('nav ul').css('display') == 'none' ) {
+            $('nav ul').addClass('mostra');
+        } else {
+            $('nav ul').removeClass('mostra');
+        }
+
+    });
+});
+
+//6. Modifica pre animazione
+jQuery(document).ready(function($){
+
+    var n = "nav ul", no = "mostra";
+
+    $('.nav-menu').on( "click tab", function(e){
+        if ( $(n).hasClass(no) ) {
+            $(n).removeClass(no);
+        } else {
+            $(n).addClass(no);
+        }
+    });
+});
+
+//7. Le modifiche CSS per animare il menu
+.nav-wrap ul{
+    height: 0;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.nav-wrap ul.mostra{ height: auto; }
+
+//8. Calcolo l'altezza del menu
+} else {
+    var nAltezza = $(n).css( 'height', 'auto' ).height();
+}
+
+//9. Animiamo l'altezza del nostro elemnto
+} else {
+    var nAltezza = $(n).css( 'height', 'auto' ).height();
+    $(n).height(0).animate({ height: nAltezza }, 270);
+}
+
+//10. Attributo di stile nel html
+<ul style="height: 192px;">
+    <li>...</li>
+    <li>...</li>
+</ul>
+
+//11. Rimuovo l'attributo e mantengo la classe
+} else {
+    var nAltezza = $(n).css( 'height', 'auto' ).height();
+    $(n).height(0).animate({ height: nAltezza }, 270);
+
+    setTimeout( function(){
+        $(n).addClass(no).removeAttr("style");
+    }, 300);
+}
+
+//12. Tutto il codice JavaScript prodotto a lezione
+jQuery(document).ready(function($){
+
+    var n = "nav ul", no = "mostra";
+
+    $('.nav-menu').on( "click tab", function(e){
+        if ( $(n).hasClass(no) ) {
+            $(n).animate({ height: 0 }, 270);
+
+            setTimeout( function(){
+                $(n).removeClass(no).removeAttr("style");
+            }, 300);
+        } else {
+            var nAltezza = $(n).css( 'height', 'auto' ).height();
+            $(n).height(0).animate({ height: nAltezza }, 270);
+
+            setTimeout( function(){
+                $(n).addClass(no).removeAttr("style");
+            }, 300);
+        }
+    });
+});
