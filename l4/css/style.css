@@ -1,0 +1,35 @@
+/* Regole risoluzione piu' bassa */
+#box {
+  width: 31.25rem;
+  height: 31.25rem;
+  background-color: red;
+  margin: 6.25rem auto;
+}
+
+/* Smartphone grandi dimensioni */
+@media (min-width: 30rem) {
+  #box {
+    background-color: blue;
+  }
+}
+
+/* Tablet */
+@media (min-width: 48rem) {
+  #box {
+    background-color: yellow;
+  }
+}
+
+/* Desktop */
+@media (min-width: 62rem) {
+  #box {
+    background-color: cyan;
+  }
+}
+
+/* Grandi Desktop */
+@media (min-width: 75rem) {
+  #box {
+    background-color: purple;
+  }
+}
