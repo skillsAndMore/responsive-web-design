@@ -1,0 +1,38 @@
+//1. Codice HTML di base per la struttura
+<section class="section content">
+    <article>
+        <h1>Lorem ipsum dolor sit amet, consectetur</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum eum iste, quae laborum ut tenetur mollitia sint fuga modi perspiciatis, sapiente alias nobis deserunt commodi aperiam, voluptatem at. Possimus, aut.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </article>
+    <aside>
+        <div class="box">
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum temporibus exercitationem voluptates illum veritatis dolorem earum. Quis voluptatem at iure unde perspiciatis facere, molestiae quidem voluptates dolor quam. A, neque.</p>
+        </div>
+
+        <div class="box">
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum temporibus exercitationem voluptates illum veritatis dolorem earum. Quis voluptatem at iure unde perspiciatis facere, molestiae quidem voluptates dolor quam. A, neque.</p>
+        </div>
+        <div class="box">
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum temporibus exercitationem voluptates illum veritatis dolorem earum. Quis voluptatem at iure unde perspiciatis facere, molestiae quidem voluptates dolor quam. A, neque.</p>
+        </div>
+    </aside>
+</section>
+
+//2. Disponiamo verticalmente il nostro contenuto con FlexBox
+.content{
+    @include display-flex;
+    @include flex-direction( column );
+}
+
+//3. Due colonne affiancate grazie a FlexBox
+@media (min-width: 48rem) {
+    .content{
+        @include flex-direction( row );
+        article{ @include flex(3); }
+        aside{ @include flex(1); }
+    }
+}
