@@ -1,0 +1,34 @@
+//1. Esempio di media query max-width
+#box{
+    background-color: red;
+}
+
+/*
+    Le regole verranno applicate alle risoluzioni
+    minori di 800px
+*/
+@media risoluzione massima 800px{
+
+    #box{
+        background-color: green;
+    }
+
+}
+
+//2. Esempio di media query min-width
+#box{
+    background-color: green;
+}
+
+/*
+    Le regole verranno applicate alle risoluzioni
+    maggiori di 800px
+*/
+@media risoluzione minima 800px{
+
+    #box{
+        background-image: url("url/immagine.jpg");
+        width: 125px;
+    }
+
+}
