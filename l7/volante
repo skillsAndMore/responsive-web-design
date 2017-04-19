@@ -1,0 +1,86 @@
+//1. Aggiungiamo un'immagine nella sezione .hero
+<div id="hero">
+    <section class="section">
+        <img src="img/river-md.jpg" alt="Test di un fiume">
+    </section>
+</div>
+
+//2. Come rendere responsive un'immagine
+img{ max-width: 100%; }
+
+//3. Carica le immagini in base alla densita' del pixel
+<div id="hero">
+    <section class="section">
+        <img
+            srcset="img/river-hd.jpg 3x,
+                    img/river-md.jpg 2x,
+                    img/river-ld.jpg 1x"
+            src="img/river-md.jpg"
+            alt="Un uomo e il fiume">
+    </section>
+</div>
+
+//4. Carica immagini in base alla larghezza in pixel del viewport
+<section class="section">
+    <img
+
+        srcset="img/river-hd.jpg 1200w,
+                img/river-md.jpg 800w,
+                img/river-ld.jpg 400w"
+        sizes="(min-width: 1200px) 1200px,
+               (min-width: 800px) 800px,
+               400px"
+        src="img/river-md.jpg"
+        alt="Un uomo e il fiume">
+</section>
+
+// 5. Modifica esempio per usare il viewport width
+<section class="section">
+    <img
+
+        srcset="img/river-hd.jpg 1200w,
+                img/river-md.jpg 800w,
+                img/river-ld.jpg 400w"
+        sizes="100vh"
+        src="img/river-md.jpg"
+        alt="Un uomo e il fiume">
+</section>
+
+//6. Cambiamo le immagini a seconda del layout e del rapporto
+<section class="section">
+    <img
+
+        srcset="img/river-160.jpg 160w,
+                img/river-250.jpg 250w,
+                img/river-400.jpg 400w"
+        sizes="(max-width: 767px) 100vw
+               (max-width: 960px) 50vw
+               25w"
+        src="img/river-md.jpg"
+        alt="Un uomo e il fiume">
+</section>
+
+//7. Codice necessario per il funzionamento dell'elemento picture
+<picture>
+    <source
+        media="(orientation: portrait) and (max-width: 450px)"
+        srcset="picture/fotocamera-3-4.png"
+    >
+    <source
+        media="(orientation: landscape) and (max-width: 768px)"
+        srcset="picture/fotocamera-16-9-small.png"
+    >
+    <source
+        media="(max-width: 768px)"
+        srcset="picture/fotocamera-1-1.png"
+    >
+    <source
+        media="(max-width: 1279px)"
+        srcset="picture/fotocamera-4-3.png"
+    >
+    <source
+        media="(min-width: 1280px)"
+        srcset="picture/fotocamera-16-9-big.png"
+    >
+    <img src="picture/fotocamera-4-3.png" alt="Immagine di default">
+</picture>
