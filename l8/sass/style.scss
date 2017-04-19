@@ -1,0 +1,162 @@
+@import "normalize";
+
+/* rem Converter */
+@function rem($target, $context: 16) {
+    @if $target == 0 {
+        @return 0;
+    }
+    @return $target / $context + 0rem;
+}
+
+/* Clearfix Placeholder */
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/* Media Query Inline */
+$b-mobile: 30rem;
+$b-tablet: 48rem;
+$b-desktop: 62rem;
+$b-wide: 75rem;
+
+@mixin breakpoint($media) {
+  @if $media == mobile {
+    @media only screen and (min-width: $b-mobile) { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: $b-tablet + 1) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: $b-desktop + 1) { @content; }
+  }
+  @else if $media == wide {
+    @media only screen and (min-width: $b-wide) { @content; }
+  }
+}
+
+/* Responsive Sass Grid */
+$spaziatura: 3%;
+$colonne: 12;
+
+@for $i from 1 through $colonne {
+
+    .col-#{$i} {
+        float: left;
+        margin-right: $spaziatura;
+        width: (100% / ($colonne / "#{$i}")) - ($spaziatura * ($colonne - "#{$i}") / $colonne);
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+
+}
+
+/* Regole risoluzione piu' bassa */
+header{
+    background-color: #3a3a3a;
+    width: 100%;
+    font-size: rem(32);
+    @extend %clearfix;
+}
+
+.nav-wrap{
+    width: 95%;
+    max-width: 62.5rem;
+    margin: 0 auto;
+}
+
+#logo{
+    color: #fff;
+    float: left;
+    text-decoration: none;
+}
+
+.nav-wrap nav{
+    clear: both;
+}
+.nav-wrap ul{
+    height: 0;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.nav-wrap ul.mostra{ height: auto; }
+
+.nav-wrap li{
+    padding: 15px 0;
+    border-bottom: 1px solid #fff;
+}
+
+.nav-wrap nav a{
+    color: #fff;
+    display: block;
+    font-weight: bold;
+    @include breakpoint(mobile) { color: red; }
+    @include breakpoint(tablet) { color: blue; }
+    @include breakpoint(desktop) { color: green; }
+}
+
+.nav-menu{
+    float: right;
+    font-size: 30px;
+    padding: 20px;
+    color: #f9f9f9;
+    cursor: pointer;
+    display: block;
+}
+
+/* Smartphone grandi dimensioni */
+@media (min-width: 30rem) {
+
+}
+
+/* Tablet */
+@media (min-width: 48rem) {
+    img{
+        max-width: 100%;
+    }
+    //header{ overflow: hidden; }
+
+    .nav-menu{ display: none; }
+
+    .nav-wrap nav{
+        float: right;
+        clear: none;
+        line-height: 2rem;
+        margin: 0.67em 0;
+    }
+
+    .nav-wrap ul{
+        display: block;
+        list-style: none;
+    }
+    .nav-wrap ul li{
+        float: left;
+        padding: 10px 20px;
+        border-bottom: none;
+    }
+
+    .nav-wrap nav a{
+        text-decoration: none;
+    }
+
+    .nav-wrap nav a:hover{
+        text-decoration: underline;
+    }
+}
+
+/* Desktop */
+@media (min-width: 62rem) {
+
+}
+
+/* Grandi Desktop */
+@media (min-width: 75rem) {
+
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Test Media stampa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <script src="http://localhost:35729/livereload.js?snipver=1"></script>
+</head>
+<body>
+    <header>
+        <div class="nav-wrap">
+            <a href="#" id="logo"><h1>Il mio titolo</h1></a>
+            <a id="nav-menu" class="nav-menu">&#9776;</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                    <li><a href="#">Link 4</a></li>
+                </ul>
+            </nav>
+            <div class="clear"></div>
+        </div>
+    </header>
+    <div id="hero">
+        <!-- <img
+            src="https://raw.githubusercontent.com/AndreaBarghigiani/AndreaBarghigiani.github.io/master/img/omino-md.jpg"
+            srcset="https://raw.githubusercontent.com/AndreaBarghigiani/AndreaBarghigiani.github.io/master/img/omino-hd.jpg 1600w,
+                    https://raw.githubusercontent.com/AndreaBarghigiani/AndreaBarghigiani.github.io/master/img/omino-md.jpg 1200w,
+                    https://raw.githubusercontent.com/AndreaBarghigiani/AndreaBarghigiani.github.io/master/img/omino-ld.jpg 800w"
+            sizes="(min-width: 1600px) 1400px,
+                   (min-width: 1000px) 1200px,
+                   800px"
+            alt="Test di un Omino"> -->
+    </div>
+
+    <section class="section content">
+        <article class="col col_9">
+            <h1>Questo articolo &egrave; di nove colonne</h1>
+            <picture>
+                <source
+                    media="(orientation: portrait) and (max-width: 450px)"
+                    srcset="img/picture/fotocamera-3-4.png"
+                >
+                <source
+                    media="(orientation: landscape) and (max-width: 768px)"
+                    srcset="img/picture/fotocamera-16-9-small.png"
+                >
+                <source
+                    media="(max-width: 768px)"
+                    srcset="img/picture/fotocamera-1-1.png"
+                >
+                <source
+                    media="(max-width: 1279px)"
+                    srcset="img/picture/fotocamera-4-3.png"
+                >
+                <source
+                    media="(min-width: 1280px)"
+                    srcset="img/picture/fotocamera-16-9-big.png"
+                >
+                <img src="img/picture/fotocamera-4-3.png" alt="Immagine di default">
+            </picture>
+        </article>
+        <aside class="col col_3">
+            <p>La sidebar invece di 3</p>
+        </aside>
+    </section>
+    <footer>
+        <div class="column-6">Sinistra</div>
+        <div class="column-6">Destra</div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/rwd.js"></script>
+</body>
+</html>

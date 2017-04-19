@@ -1,0 +1,63 @@
+//1. Struttura Responsive di un progetto Sass
+@import "base";
+
+@media (min-width: 30rem) {
+    @import "min30";
+}
+
+@media (min-width: 48rem) {
+    @import "min48";
+}
+
+@media (min-width: 62rem) {
+    @import "min62";
+}
+
+@media (min-width: 75rem) {
+    @import "min75";
+}
+
+//2. Struttura Responsive organizzata diversamente
+@import "variables";
+@import "mixins";
+@import "typography";
+
+@media (min-width: 62rem) {
+    @import "grid";
+}
+
+//3. Usiamo un placeholder come clearfix
+%clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+//4. Applico il placeholder %clearfix
+header{
+    background-color: #3a3a3a;
+    width: 100%;
+    @extend %clearfix;
+}
+
+//5. CSS generato dal placeholder
+header {
+  background-color: #3a3a3a;
+  width: 100%;
+}
+
+header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+//6. Calcolo rem a partire dai px
+@function rem($target, $context: 16) {
+    @if $target == 0 {
+        @return 0;
+    }
+    @return $target / $context + 0rem;
+}
